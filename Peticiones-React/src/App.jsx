@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './App.css'
+import Cajita from './screens/Cajita'
 
 function App() {
   //Almaceno la info de la api
@@ -23,7 +24,7 @@ function App() {
           {
             data.map(item=>
               {
-                return <li key={item.id}>{item.name}</li>
+                return <Cajita key ={item.id} dataApi ={item}/>
               })
           }
         </ul>
