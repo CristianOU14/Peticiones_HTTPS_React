@@ -1,34 +1,20 @@
-import { useState } from 'react'
 import './App.css'
 import Cajita from './screens/Cajita'
+import { BrowserRouter as Router,Route,Routes} from 'react-router-dom'
+import Main from './screens/Main/Main'
+import Usuario from './screens/usuario/Usuario'
 
 function App() {
   //Almaceno la info de la api
-  const [data, setData] = useState([])
-  const fecthData = ()=>
-  {
-    const base = "https://api-colombia.com/api/v1/"
-    const enpoint = "Department"
-    const url = `${base}${enpoint}`
-    fetch(url)
-    .then(data => data.json())
-    .then(data => setData(data))
-    .then(error => console.log(error))
-  }
   return (
     <>
-     <h1>Peticiones HTTPS</h1>
-     <button onClick={()=>fecthData()}>Lamar API</button>
-     <div>
-        <ul>
-          {
-            data.map(item=>
-              {
-                return <Cajita key ={item.id} dataApi ={item}/>
-              })
-          }
-        </ul>
-     </div>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Main/>}/>
+          <Route path='/usuario' element={<Usuario/>}/>
+          <Route path='/cajita' element={<Cajita/>}/>
+        </Routes>
+      </Router>
     </>
   )
 }
