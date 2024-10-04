@@ -1,7 +1,7 @@
 import "./Cajita.css"
 import {PropTypes} from 'prop-types'
 import { useState } from "react"
-function Cajita (props)
+function Cajita ()
 {
     const [data, setData] = useState([])
     const fecthData = ()=>
@@ -23,17 +23,17 @@ function Cajita (props)
             {
                 data.map(item=>
                 {
-                    return <Cajita key ={item.id} dataApi ={item}/>
+                    return <li key ={item.id} >{item.name}</li>
                 })
             }
             </ul>
         </div>
-        <li>{props.dataApi.name}</li>
+        {/* <li>{props.dataApi.name}</li> */}
     </>
     )
 }
-Cajita.propTypes = 
-{
-    dataApi : PropTypes.object.isRequired
-}
+// Cajita.propTypes = 
+// {
+//     dataApi : PropTypes.object.isRequired
+// }
 export default Cajita

@@ -3,9 +3,9 @@ import { useState } from "react";
 
 export default function Main(){
     const navigate = useNavigate();
-    const [usuario,setUsuario] = useState('123');
+    const [usuario] = useState('123');
     const goToProfile = ()=>{
-        if (usuario === '123')
+        if (usuario === '1234')
             navigate('/usuario')
         else
             navigate('/cajita')
